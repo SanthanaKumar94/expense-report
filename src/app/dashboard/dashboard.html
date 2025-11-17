@@ -14,95 +14,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">January</th>
-        <td>18000</td>
-        <td>12000</td>
-        <td>6000</td>
-        <td><button type="button">Details</button></td>
-      </tr>
-      <tr>
-        <th scope="row">February</th>
-        <td>15000</td>
-        <td>10000</td>
-        <td>5000</td>
-        <td><button type="button">Details</button></td>
-      </tr>
-      <tr>
-        <th scope="row">March</th>
-        <td>20000</td>
-        <td>13000</td>
-        <td>7000</td>
-        <td><button type="button">Details</button></td>
-      </tr>
-      <tr>
-        <th scope="row">April</th>
-        <td>17000</td>
-        <td>11000</td>
-        <td>6000</td>
-        <td><button type="button">Details</button></td>
-      </tr>
-      <tr>
-        <th scope="row">May</th>
-        <td>22000</td>
-        <td>14000</td>
-        <td>8000</td>
-        <td><button type="button">Details</button></td>
-      </tr>
-      <tr>
-        <th scope="row">June</th>
-        <td>19000</td>
-        <td>12000</td>
-        <td>7000</td>
-        <td><button type="button">Details</button></td>
-      </tr>
-      <tr>
-        <th scope="row">July</th>
-        <td>21000</td>
-        <td>15000</td>
-        <td>6000</td>
-        <td><button type="button">Details</button></td>
-      </tr>
-      <tr>
-        <th scope="row">August</th>
-        <td>23000</td>
-        <td>16000</td>
-        <td>7000</td>
-        <td><button type="button">Details</button></td>
-      </tr>
-      <tr>
-        <th scope="row">September</th>
-        <td>16000</td>
-        <td>10000</td>
-        <td>6000</td>
-        <td><button type="button">Details</button></td>
-      </tr>
-      <tr>
-        <th scope="row">October</th>
-        <td>18000</td>
-        <td>12000</td>
-        <td>6000</td>
-        <td><button type="button">Details</button></td>
-      </tr>
-      <tr>
-        <th scope="row">November</th>
-        <td>20000</td>
-        <td>13000</td>
-        <td>7000</td>
-        <td><button type="button">Details</button></td>
-      </tr>
-      <tr>
-        <th scope="row">December</th>
-        <td>25000</td>
-        <td>18000</td>
-        <td>7000</td>
-        <td><button type="button">Details</button></td>
-      </tr>
+      @for (expense of monthlyExpenses; track expense.month) {
+        <tr>
+          <th scope="row">{{ expense.month }}</th>
+          <td>{{ expense.totalIncome }}</td>
+          <td>{{ expense.totalExpense }}</td>
+          <td>{{ expense.netSavings }}</td>
+          <td><button type="button">Details</button></td>
+        </tr>
+      }
     </tbody>
     <tfoot>
       <tr>
         <th scope="row" colspan="3">Yearly Savings</th>
-        <td colspan="2">78000</td>
+        <td colspan="2">{{ yearlySavings }}</td>
       </tr>
     </tfoot>
   </table>
