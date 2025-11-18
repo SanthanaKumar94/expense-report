@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 interface MonthlyExpense {
   month: string;
   totalIncome: number;
   totalExpense: number;
   netSavings: number;
+  isEditing?: boolean;
 }
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
@@ -31,5 +33,15 @@ export class Dashboard {
   
   protected get yearlySavings(): number {
     return this.monthlyExpenses.reduce((total, month) => total + month.netSavings, 0);
+  }
+  
+  protected editExpense(index: number): void {
+    this.monthlyExpenses[index].isEditing = true;
+  }
+  
+  protected updateExpense(index: number): void {
+    const expense = this.monthlyExpenses[index];
+    expense.netSavings = expense.totalIncome - expense.totalExpense;
+    expense.isEditing = false;
   }
 }

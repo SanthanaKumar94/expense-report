@@ -14,13 +14,31 @@
       </tr>
     </thead>
     <tbody>
-      @for (expense of monthlyExpenses; track expense.month) {
+      @for (expense of monthlyExpenses; track expense.month; let i = $index) {
         <tr>
           <th scope="row">{{ expense.month }}</th>
-          <td>{{ expense.totalIncome }}</td>
-          <td>{{ expense.totalExpense }}</td>
+          <td>
+            @if (expense.isEditing) {
+              <input type="number" [(ngModel)]="expense.totalIncome" />
+            } @else {
+              {{ expense.totalIncome }}
+            }
+          </td>
+          <td>
+            @if (expense.isEditing) {
+              <input type="number" [(ngModel)]="expense.totalExpense" />
+            } @else {
+              {{ expense.totalExpense }}
+            }
+          </td>
           <td>{{ expense.netSavings }}</td>
-          <td><button type="button">Details</button></td>
+          <td>
+            @if (expense.isEditing) {
+              <button type="button" (click)="updateExpense(i)">Update</button>
+            } @else {
+              <button type="button" (click)="editExpense(i)">Edit</button>
+            }
+          </td>
         </tr>
       }
     </tbody>

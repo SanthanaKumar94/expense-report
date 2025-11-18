@@ -36,6 +36,7 @@ th,
 td {
   border: 1px solid rgb(160 160 160);
   padding: 8px 10px;
+  width: 12rem;
 }
 
 td:last-of-type {
