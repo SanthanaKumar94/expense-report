@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ValidateExpense } from '../validate-expense';
 
 interface MonthlyExpense {
   month: string;
@@ -11,7 +12,7 @@ interface MonthlyExpense {
 
 @Component({
   selector: 'app-dashboard',
-  imports: [FormsModule],
+  imports: [FormsModule, ValidateExpense],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })

@@ -54,3 +54,26 @@ tfoot th {
 tfoot td {
   font-weight: bold;
 }
+
+/* Validation styles for directive */
+input[type="number"] {
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100px;
+}
+
+input[type="number"]:focus {
+  outline: none;
+}
+
+/* Validation styles for directive */
+input.validation-invalid {
+  border: 2px solid #dc3545 !important;
+  background-color: #ffe6e6 !important;
+}
+
+input.validation-valid {
+  border: 2px solid #28a745 !important;
+  background-color: #e6ffe6 !important;
+}

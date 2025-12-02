@@ -19,14 +19,14 @@
           <th scope="row">{{ expense.month }}</th>
           <td>
             @if (expense.isEditing) {
-              <input type="number" [(ngModel)]="expense.totalIncome" />
+              <input type="number" [(ngModel)]="expense.totalIncome" appValidateExpense />
             } @else {
               {{ expense.totalIncome }}
             }
           </td>
           <td>
             @if (expense.isEditing) {
-              <input type="number" [(ngModel)]="expense.totalExpense" />
+              <input type="number" [(ngModel)]="expense.totalExpense" appValidateExpense />
             } @else {
               {{ expense.totalExpense }}
             }
